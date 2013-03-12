@@ -1,0 +1,261 @@
+*{ /* These are resets, for speed I wouldn't recommend the * selector, for laziness I do */
+	margin: 0;
+	padding: 0;
+
+}
+
+body{
+	background-color: #f5f5f5;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+article{
+	display: block;
+	width: 90%;
+	margin: 0 auto; /* Centers the element */
+	color: #191919;
+}
+
+article h1, article h2, article h3{
+	text-transform: uppercase;
+	text-align: center;
+}
+
+article h1::before{
+	content: 'SEXY';
+	display: block;
+	font-size: 0.8em;
+	line-height: 0.5em;
+	letter-spacing: 0em;
+}
+
+article h1{
+	color: #F05;
+	margin: 0.1em 0em 0.5em;
+	text-shadow: 0 0.05em #191919, 0 0.1em white, 0 0.15em #191919; /* You are able to stack text shadows */
+	font-size: 30em;
+	letter-spacing: 0.1em; 
+}
+
+article h2{
+	margin: 0.5em 0 0.25em;
+	font-size: 8em;
+	text-shadow: 0 0.1em #F05;
+}
+
+article h3{
+	margin: 1em 0 0.25em;
+	font-size: 4em;
+}
+
+article ol li{
+	color: #F05;
+	list-style: none;
+	font-size: 3em;
+	text-align: center;
+}
+
+.demo{
+	margin: 10% 0;
+	text-align: center;
+}
+
+.demo a:link{
+	display: block;
+	font-size: 5em;
+}
+
+.demo a:visited{
+	color: #F06;
+}
+
+.demo a:hover{ /* On hover change the styles to this */
+	cursor: default; /* Change the cursor to what you want */
+	opacity: 0.7;
+	font-size: 5.5em;
+}
+/* Active is when you're clicking the element */
+.demo a:active{ -webkit-filter: blur(10px); } /* As of writing filters aren't supported across all browsers */
+
+.demo input{
+	width: 50%;
+	font-size: 5em;
+	padding: 0.5em;
+}
+
+.demo input:focus{
+	border: 10px solid black;
+	outline: 10px solid #F05;
+}
+
+.demo ul.animals li{
+	list-style: none;
+	font-size: 3.5em;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+/* First and last children of the list */
+.demo ul.animals li:first-child{ text-decoration: line-through; }
+.demo ul.animals li:last-child{ text-transform: lowercase; }
+
+.demo ul.animals li:nth-child(1){ color: #F06; }
+.demo ul.animals li:nth-child(2){ color: #418AE6; }
+.demo ul.animals li:nth-child(3){ color: #8BFF8B; }
+.demo ul.animals li:nth-child(4){ color: #FFAD00; }
+/* text-shadow behaves similarily to box-shadow without the growth parameter */
+.demo ul.animals li:nth-child(2n){ font-style: italic; text-shadow: 0 0.075em black; }
+
+.demo ul.animals li:last-child::before{ /* You can stack pseudo selectors and psuedo elements */
+	content: '>';
+	margin-right: 0.35em;
+}
+
+.demo .loremtext p{
+	font-size: 1.5em;
+	line-height: 1.15em;
+	padding: 0 1em;
+}
+
+/* These are the psuedo-elements*/
+
+.demo .loremtext p::before{
+	content: 'THIS IS BEFORE THE TEXT '; /* Content is required even if it's an empty string '' */
+	color: #FF0047;
+}
+
+.demo .loremtext p::after{
+	content: ' AND THIS IS AFTER THE TEXT';
+	color: #0066FF;
+}
+
+.boxsizing{
+	overflow: hidden;
+	width: 50%;
+	margin: 10% auto;
+	background: #F06;
+}
+
+.boxsizing img{
+	float: left;
+	border: 10px solid #191919;
+	width: 50%;
+
+	-webkit-box-sizing: border-box; /* Makes width take into account padding and borders */
+	   -moz-box-sizing: border-box;
+	 		box-sizing: border-box; 
+	
+	-webkit-border-radius: 50%; /* Makes element circular */
+	   -moz-border-radius: 50%;
+		    border-radius: 50%;
+}
+
+@media (max-width: 600px){ /* When width of window gets smaller than 600px */
+	body{
+		background: blue;
+		-webkit-filter: invert(1);
+	}
+}
+
+.demo .colours, .demo .shadows{
+	width: 50%;
+	margin: 0 auto;
+	height: 200px;
+}
+
+.demo .colours{	
+	background-color: red;
+	background-color: #FF0000; /* RGB in hex */
+	background-color: #F00; /* This is the shorthand version if they are duplicates only */
+	background-color: rgb(255, 0, 0); /* Red, Green, Blue 0-255 */
+	background-color: hsl(0, 100%, 50%); /* Hue: 0-360, saturation, lightness */
+	background-color: rgba(255, 0, 0, 0.5); /* Adding alpha transparency, range goes from 0-10 */
+	background-color: hsla(0, 100%, 50%, 0.5);
+}
+
+.demo .shadows{
+	background-color: #F5F5F5;
+
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.8);
+	   -moz-box-shadow: 0 0 5px rgba(0,0,0,0.8);
+			box-shadow: 0 0 5px rgba(0,0,0,0.8);
+}
+
+.demo h3.transitions{
+	-webkit-transition: all 2s linear; 
+	   -moz-transition: all 2s linear; 
+		 -o-transition: all 2s linear; 
+			transition: all 2s linear;
+}
+
+.demo h3:hover{
+	font-size: 10em;
+}
+
+/* The spinner uses borders to create a shape */
+
+.spinner{  
+	margin: 10% auto;
+	width: 0;
+	height: 0;
+	border: 10em solid;
+	border-color: #505050 #8BFF8B #F06 #418AE6;
+
+	-webkit-border-radius: 50%;
+	   -moz-border-radius: 50%;
+		    border-radius: 50%;
+	        
+	-webkit-animation: spin 1s infinite linear;
+	   -moz-animation: spin 1s infinite linear;
+		 -o-animation: spin 1s infinite linear;
+		    animation: spin 1s infinite linear;
+}
+
+/* These are the actual animations. You can do more than just 'from' and 'to' such as percentages */
+
+@-webkit-keyframes spin{
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin{
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin{
+    from { -o-transform: rotate(0deg); }
+    to { -o-transform: rotate(360deg); }
+}
+
+@keyframes spin{
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+/* h5pres */
+
+.sideme {
+	position: absolute;
+	width:100%;
+	height:1ex;
+	top:0;
+	left:0;
+	background: #FFF;
+	display: table;
+	z-index: -1;
+	font-size: 50%;
+}
+
+meter {
+    -webkit-appearance: none;
+}
+
+meter::-webkit-meter-bar {
+    background: #fff;
+	color: rgb(204,204,204);
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #f06;
+}

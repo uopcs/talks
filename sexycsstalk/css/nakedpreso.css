@@ -1,0 +1,81 @@
+/* Used for h5pres */
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+html, body {
+    width:100%;
+    height:100%; 
+}
+
+body {
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+
+header, footer {
+	display: none !important;
+}
+
+article, section {
+	display: block;
+	word-wrap:break-word;
+}
+
+article {
+	margin: auto;
+	width: auto;
+    box-flex:1;
+    overflow: auto;
+}
+
+article section img {
+ 	max-width: 80%;
+ 	margin: auto;
+ 	display:block;
+}
+
+.bg {
+	display: none;
+}
+.sideme {
+	position: absolute;
+	width:100%;
+	height:1ex;
+	top:0;
+	left:0;
+	background: #FFF;
+	display: table;
+	z-index: -1;
+	font-size: 50%;
+}
+
+meter {
+    -webkit-appearance: none;
+}
+
+meter::-webkit-meter-bar {
+    background: white;
+	color: rgb(204,204,204);
+
+}
+
+meter::-webkit-meter-optimum-value {
+    background: rgb(204,204,204);
+}
+
+#presoshim {
+	z-index: -10;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	display: block;
+	opacity: 0.2;
+}
